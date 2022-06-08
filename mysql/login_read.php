@@ -1,10 +1,5 @@
 <?php 
 
-if(isset($_POST['submit'])) {
-  
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
   $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
 
     if ($connection) {
@@ -13,16 +8,14 @@ if(isset($_POST['submit'])) {
       die("we need to fix this");
     }
 
-      $query = "INSERT INTO users(username,password) ";
-      $query .= "VALUES ('$username','$password')";
+        $query = "SELECT * FROM users";
 
-      $result =    mysqli_query($connection, $query);
+        $result =    mysqli_query($connection, $query);
 
-      if (!$result) {
-        die('Query Faild'); 
-      }
+        if (!$result) {
+            die('Query Faild'); 
+        }
 
-}
 
 
 
@@ -60,10 +53,10 @@ if(isset($_POST['submit'])) {
               <li class="nav-item " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login.php">Login</a>
               </li>
-                <li class="nav-item active " >
+                <li class="nav-item " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_create.php">Login create</a>
               </li>
-              <li class="nav-item  " >
+              <li class="nav-item active " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_read.php">Login Read</a>
               </li>
               
@@ -73,22 +66,22 @@ if(isset($_POST['submit'])) {
 
     <div class="container mt-4">
       <div class="col-md-6">
-        <form action="login_create.php" method="post">
-          <div class="form-group">
-            <label for="">User Name</label>
-            <input type="text"
-              class="form-control" name="username" id="" aria-describedby="helpId" placeholder="">
-          </div>
 
-          <div class="form-group">
-            <label for="">Password</label>
-            <input type="password" class="form-control" name="password" id="" placeholder="">
-          </div>
+        <?php 
 
-          <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="submit" value="Submit">
-          </div>
-        </form>	
+            while($row = mysqli_fetch_assoc($result)) {
+            
+            ?>
+            <pre>
+                <?php
+                    print_r($row);
+                ?>
+            </pre>
+            <?php
+            }
+        
+        ?>
+        
       </div>
     </div>
            
