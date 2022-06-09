@@ -66,6 +66,9 @@ if(isset($_POST['submit'])) {
               <li class="nav-item  " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_read.php">Login Read</a>
               </li>
+              <li class="nav-item  " >
+                  <a class="nav-link" href="http://localhost/cms/mysql/login_update.php">Login Update</a>
+              </li>
               
           </ul>
       </div>

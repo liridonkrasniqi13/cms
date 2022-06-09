@@ -1,21 +1,5 @@
-<?php 
-
-  $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-
-    if ($connection) {
-      echo "we are connected";
-    } else {
-      die("we need to fix this");
-    }
-
-        $query = "SELECT * FROM users";
-
-        $result =    mysqli_query($connection, $query);
-
-        if (!$result) {
-            die('Query Faild'); 
-        }
-
+<?php include "db.php";
+include "functions.php";
 
 
 
@@ -56,10 +40,10 @@
                 <li class="nav-item " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_create.php">Login create</a>
               </li>
-              <li class="nav-item active " >
+              <li class="nav-item  " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_read.php">Login Read</a>
               </li>
-              <li class="nav-item  " >
+              <li class="nav-item active " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_update.php">Login Update</a>
               </li>
               
@@ -70,20 +54,41 @@
     <div class="container mt-4">
       <div class="col-md-6">
 
-        <?php 
 
-            while($row = mysqli_fetch_assoc($result)) {
-            
+
+      <form action="login_create.php" method="post">
+          <div class="form-group">
+            <label for="">User Name</label>
+            <input type="text"
+              class="form-control" name="username" id="" aria-describedby="helpId" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" class="form-control" name="password" id="" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <select id="id">
+            <?php 
+
+              showAllData();
+
             ?>
-            <pre>
-                <?php
-                    print_r($row);
-                ?>
-            </pre>
-            <?php
-            }
-        
-        ?>
+
+            </select>
+
+            
+          </div>
+
+          <div class="form-group">
+            <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+          </div>
+
+          
+        </form>	
+
+
         
       </div>
     </div>
