@@ -5,7 +5,7 @@
 
 if(isset($_POST['submit'])) {
 
-  UpdateTable();
+  DeleteRows();
   
 }
 
@@ -49,10 +49,10 @@ if(isset($_POST['submit'])) {
               <li class="nav-item  " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_read.php">Login Read</a>
               </li>
-              <li class="nav-item active " >
+              <li class="nav-item " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_update.php">Login Update</a>
               </li>
-              <li class="nav-item" >
+              <li class="nav-item active " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_delete.php">Login Delete</a>
               </li>
               
@@ -65,7 +65,7 @@ if(isset($_POST['submit'])) {
 
 
 
-      <form action="login_update.php" method="post">
+      <form action="login_delete.php" method="post">
           <div class="form-group">
             <label for="">User Name</label>
             <input type="text"
@@ -91,7 +91,7 @@ if(isset($_POST['submit'])) {
           </div>
 
           <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="submit" value="Update">
+            <input class="btn btn-danger" type="submit" name="submit" value="Delete">
           </div>
 
           

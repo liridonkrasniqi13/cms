@@ -1,17 +1,11 @@
+<?php include "db.php"; ?>
+
 <?php 
 
 if(isset($_POST['submit'])) {
   
   $username = $_POST['username'];
   $password = $_POST['password'];
-
-  $connection = mysqli_connect('localhost', 'root', '', 'loginapp');
-
-    if ($connection) {
-      echo "we are connected";
-    } else {
-      die("we need to fix this");
-    }
 
       $query = "INSERT INTO users(username,password) ";
       $query .= "VALUES ('$username','$password')";
@@ -68,6 +62,9 @@ if(isset($_POST['submit'])) {
               </li>
               <li class="nav-item  " >
                   <a class="nav-link" href="http://localhost/cms/mysql/login_update.php">Login Update</a>
+              </li>
+              <li class="nav-item" >
+                  <a class="nav-link" href="http://localhost/cms/mysql/login_delete.php">Login Delete</a>
               </li>
               
           </ul>
