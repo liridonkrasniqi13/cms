@@ -1,7 +1,13 @@
-<?php include "db.php";
-include "functions.php";
+<?php include "db.php"; ?>
+<?php include "functions.php";?>
 
+<?php
 
+if(isset($_POST['submit'])) {
+
+  UpdateTable();
+  
+}
 
 ?>
 
@@ -56,7 +62,7 @@ include "functions.php";
 
 
 
-      <form action="login_create.php" method="post">
+      <form action="login_update.php" method="post">
           <div class="form-group">
             <label for="">User Name</label>
             <input type="text"
@@ -69,7 +75,7 @@ include "functions.php";
           </div>
 
           <div class="form-group">
-            <select id="id">
+            <select name="id" id="id">
             <?php 
 
               showAllData();
@@ -82,7 +88,7 @@ include "functions.php";
           </div>
 
           <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+            <input class="btn btn-primary" type="submit" name="submit" value="Update">
           </div>
 
           
