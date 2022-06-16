@@ -90,6 +90,37 @@ function DeleteRows() {
 }
 
 
+function Readata() {
+  global $connection;
+
+    if ($connection) {
+      echo "we are connected";
+    } else {
+      die("we need to fix this");
+    }
+
+        $query = "SELECT * FROM users";
+
+        $result =    mysqli_query($connection, $query);
+
+        if (!$result) {
+            die('Query Faild'); 
+        }
+
+
+
+            while($row = mysqli_fetch_assoc($result)) {
+
+                    print_r($row);
+
+            }
+        
+        }
+
+
+
+
+
 
 
 ?>
