@@ -1,26 +1,7 @@
 <?php include "db.php"; ?>
+<?php include "functions.php"; ?>
 
-<?php 
-
-if(isset($_POST['submit'])) {
-  
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
-      $query = "INSERT INTO users(username,password) ";
-      $query .= "VALUES ('$username','$password')";
-
-      $result =    mysqli_query($connection, $query);
-
-      if (!$result) {
-        die('Query Faild'); 
-      }
-
-}
-
-
-
-?>
+<?php CreateUser() ?>
 
 
 
@@ -73,6 +54,7 @@ if(isset($_POST['submit'])) {
 
     <div class="container mt-4">
       <div class="col-md-6">
+        <h1 class="text-center">Create</h1>
         <form action="login_create.php" method="post">
           <div class="form-group">
             <label for="">User Name</label>

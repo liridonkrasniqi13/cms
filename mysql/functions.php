@@ -1,6 +1,28 @@
 <?php
 include "db.php";
 
+function CreateUser() {
+
+if(isset($_POST['submit'])) {
+  global $connection;
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+      $query = "INSERT INTO users(username,password) ";
+      $query .= "VALUES ('$username','$password')";
+
+      $result =    mysqli_query($connection, $query);
+
+      if (!$result) {
+        die('Query Faild'); 
+      } else {
+        echo "User Created ";
+      }
+
+}
+
+}
+
 
 function showAllData() {
   global $connection;
@@ -20,7 +42,7 @@ function showAllData() {
 
 
 function UpdateTable() {
-
+  if(isset($_POST['submit'])) {
   global $connection;
   
   $username = $_POST['username'];
@@ -37,13 +59,16 @@ function UpdateTable() {
 
   if(!$result) {
     die("Query Faild" .mysqli_error($connection));
-  }
+  } else {
+        echo "User Update ";
+      }
   
+  }
 }
 
 
 function DeleteRows() {
-
+  if(isset($_POST['submit'])) {
   global $connection;
   
   $username = $_POST['username'];
@@ -58,8 +83,13 @@ function DeleteRows() {
 
   if(!$result) {
     die("Query Faild" .mysqli_error($connection));
+  } else {
+        echo "User Deleted ";
+      }
   }
-  
 }
+
+
+
 
 ?>
