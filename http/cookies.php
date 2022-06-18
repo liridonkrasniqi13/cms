@@ -17,7 +17,7 @@ setcookie($name,$value,$expiration);
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Post</title>
+    <title>Cookies</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,6 +27,22 @@ setcookie($name,$value,$expiration);
   </head>
   <body>
 
+
+<?php 
+
+if(isset($_COOKIE["SomeName"]))  {
+
+  $someOne = $_COOKIE["SomeName"];
+
+  echo $someOne;
+
+} else {
+
+  $someOne = "";
+
+}
+ 
+?>
 
 
 
